@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef0235b457ec3b41bbcd4ac9ab7b9ea, type: 3}
+  m_Name: EpisodeConfiguration
+  m_EditorClassIdentifier: 
+  currentDataEpisodes: {fileID: 11400000, guid: 2144dc11cdbbeb74daf8bb615572cdc1, type: 2}
+  defaultDataEpisodes: {fileID: 11400000, guid: f6ebebd5947c78445878872ce77e9530, type: 2}
+  dataCurrencyAndResources: {fileID: 11400000, guid: e5badca12ec63f845a41b92459b8c7cb, type: 2}

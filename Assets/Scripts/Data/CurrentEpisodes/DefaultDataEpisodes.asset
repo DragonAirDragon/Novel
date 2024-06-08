@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c7321d2951efc44db574f8bda466e18, type: 3}
+  m_Name: DefaultDataEpisodes
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: fe30825e80eefd541a523b42bd7c2611, type: 3}
+    - {fileID: 21300000, guid: dd9e61abb4bdb8b43bbed71ff6267fdc, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: currentEpisodes
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[EpisodeInfo, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 1|EpisodeInfo, Assembly-CSharp
+    - Name: epsiodeName
+      Entry: 1
+      Data: Tutorial
+    - Name: description
+      Entry: 1
+      Data: Immerse yourself in the world of the novel
+    - Name: fullDescription
+      Entry: 1
+      Data: Something no one was expecting .That's a long description of the episode...That's
+        a long description of the episode...
+    - Name: currentEpisodeState
+      Entry: 3
+      Data: 0
+    - Name: saveName
+      Entry: 1
+      Data: TutorialSave
+    - Name: nameProgressVariable
+      Entry: 1
+      Data: G_TutorialProgress
+    - Name: nameScript
+      Entry: 1
+      Data: Tutorial
+    - Name: currentProgressValue
+      Entry: 3
+      Data: 0
+    - Name: maxProgressValue
+      Entry: 3
+      Data: 2
+    - Name: splashImage
+      Entry: 10
+      Data: 0
+    - Name: rewardsCrystal
+      Entry: 3
+      Data: 100
+    - Name: energyCost
+      Entry: 3
+      Data: 0
+    - Name: resetCrystal
+      Entry: 3
+      Data: 20
+    - Name: unblockable
+      Entry: 5
+      Data: true
+    - Name: fullSplashImage
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|EpisodeInfo, Assembly-CSharp
+    - Name: epsiodeName
+      Entry: 1
+      Data: Ep 1. Name
+    - Name: description
+      Entry: 1
+      Data: Description of the task text, which can be no more than 2 lines
+    - Name: fullDescription
+      Entry: 1
+      Data: Something no one was expecting .That's a long description of the episode...That's
+        a long description of the episode...
+    - Name: currentEpisodeState
+      Entry: 3
+      Data: 3
+    - Name: saveName
+      Entry: 1
+      Data: Ep1Save
+    - Name: nameProgressVariable
+      Entry: 1
+      Data: G_Ep1Progress
+    - Name: nameScript
+      Entry: 1
+      Data: Ep1
+    - Name: currentProgressValue
+      Entry: 3
+      Data: 0
+    - Name: maxProgressValue
+      Entry: 3
+      Data: 10
+    - Name: splashImage
+      Entry: 10
+      Data: 0
+    - Name: rewardsCrystal
+      Entry: 3
+      Data: 200
+    - Name: energyCost
+      Entry: 3
+      Data: 100
+    - Name: resetCrystal
+      Entry: 3
+      Data: 150
+    - Name: unblockable
+      Entry: 5
+      Data: true
+    - Name: fullSplashImage
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

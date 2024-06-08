@@ -1,0 +1,20 @@
+@back BackgroundSpider
+Maya.default: Hello, dear. I am glad you decided to stop by. Sit down, help yourself. I haven’t had any visitors in a long time…
+@hide Maya
+@back BackgroundSpider pos:70.50 time:2
+Maya.default: I am Maya, a storyteller. You’ve come to hear some stories, haven’t you? I know so many of them - I’ve lived a long life, longer than you might think looking at my youthful face…
+Maya.default: Shall I tell you about a girl who followed a white rabbit down a rabbit hole and found herself in a bizarre and whimsical world?
+; smiling change
+Maya.default: Or a story about a guardian of silicon and circuits who ran away to protect a fragile heart from a world of steel and indifference? Oh, I know. I’ll tell you the story about a girl, who was living a dream till one day she… You’ll see. I don’t want to spoil it. 
+@back BackgroundBedRoom pos:50.50 time:0
+Maya: Follow me, open the door.
+
+
+@savefilename name:TutorialSave
+@set G_TutorialProgress+=1
+@title if:G_TutorialProgress==1
+@hide Maya
+@savefilename name:TutorialSave
+@back BackgroundBedRoom pos:20.50 time:0
+Maya: Follow me, open the door.
+@stop
