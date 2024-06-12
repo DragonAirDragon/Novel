@@ -41,6 +41,8 @@ jobs:
         with:
           targetPlatform: Android
           allowDirtyBuild: true
+          androidTargetSdkVersion: AndroidApiLevel33
+          customParameters: -development
           
       # Output
       - uses: actions/upload-artifact@v3
