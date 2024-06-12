@@ -1,12 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Naninovel;
 using Naninovel.UI;
-using Sirenix.OdinInspector.Editor;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Localization.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 
