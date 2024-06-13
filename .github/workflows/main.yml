@@ -11,6 +11,8 @@ jobs:
       matrix:
         targetPlatform:
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
+          - Android # Build an Android .apk standalone app.
+          - WebGL # WebGL.
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -43,12 +45,13 @@ jobs:
 
       - name: List files before build
         run: |
-          echo "Listing files in root directory:"
-          ls -al /github/workspace
+          echo "Listing files in current directory:"
+          pwd
+          ls -al
           echo "Listing files in Library directory:"
-          ls -al /github/workspace/Library
+          ls -al Library
           echo "Listing files in Assets directory:"
-          ls -al /github/workspace/Assets
+          ls -al Assets
 
       - name: Build with Unity
         uses: game-ci/unity-builder@v4
@@ -63,8 +66,8 @@ jobs:
       - name: Display Editor log
         if: always()
         run: |
-          if [ -f /github/workspace/Library/Editor.log ]; then
-            cat /github/workspace/Library/Editor.log
+          if [ -f Library/Editor.log ]; then
+            cat Library/Editor.log
           else
             echo "Editor.log does not exist."
           fi
@@ -72,8 +75,8 @@ jobs:
       - name: Display Unity log
         if: always()
         run: |
-          if [ -f /github/workspace/Library/Unity.log ]; then
-            cat /github/workspace/Library/Unity.log
+          if [ -f Library/Unity.log ]; then
+            cat Library/Unity.log
           else
             echo "Unity.log does not exist."
           fi
