@@ -27,6 +27,12 @@ jobs:
           restore-keys: |
             Library-${{ matrix.targetPlatform }}-${{ runner.os }}-build
 
+      - run: |
+          if [ -d "Library" ]; then
+            rm -rf Library
+          fi
+          mkdir -p Library
+
       - if: matrix.targetPlatform == 'Android'
         uses: jlumbroso/free-disk-space@v1.3.1
 
@@ -44,15 +50,33 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           customParameters: '-logFile -'
 
+      - name: List files in Library directory
+        run: |
+          echo "Listing files in Library directory:"
+          ls -al Library
+
+      - name: List files in root directory
+        run: |
+          echo "Listing files in root directory:"
+          ls -al /github/workspace
+
       - name: Display Editor log
         if: always()
         run: |
-          cat /github/workspace/Library/Editor.log
+          if [ -f /github/workspace/Library/Editor.log ]; then
+            cat /github/workspace/Library/Editor.log
+          else
+            echo "Editor.log does not exist."
+          fi
 
       - name: Display Unity log
         if: always()
         run: |
-          cat /github/workspace/Library/Unity.log
+          if [ -f /github/workspace/Library/Unity.log ]; then
+            cat /github/workspace/Library/Unity.log
+          else
+            echo "Unity.log does not exist."
+          fi
 
       - uses: actions/upload-artifact@v3
         with:
