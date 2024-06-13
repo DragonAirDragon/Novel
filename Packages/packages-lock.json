@@ -14,13 +14,6 @@
       "dependencies": {},
       "hash": "fbe0bf85155f42f8832205f7b3ac3df571ada33e"
     },
-    "com.github.asus4.tflite": {
-      "version": "https://github.com/asus4/tf-lite-unity-sample.git?path=/Packages/com.github.asus4.tflite",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "30f5053591c959493250324f7ebad4058b9552bd"
-    },
     "com.unity.2d.animation": {
       "version": "9.1.0",
       "depth": 1,
