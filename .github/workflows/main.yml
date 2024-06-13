@@ -12,7 +12,8 @@ jobs:
         targetPlatform:
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           lfs: true
@@ -25,7 +26,8 @@ jobs:
           restore-keys: |
             Library-${{ matrix.targetPlatform }}-${{ runner.os }}-build
 
-      - run: |
+      - name: Clear Library if exists
+        run: |
           if [ -d "Library" ]; then
             rm -rf Library
           fi
@@ -39,7 +41,17 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libegl1
 
-      - uses: game-ci/unity-builder@v4
+      - name: List files before build
+        run: |
+          echo "Listing files in root directory:"
+          ls -al /github/workspace
+          echo "Listing files in Library directory:"
+          ls -al /github/workspace/Library
+          echo "Listing files in Assets directory:"
+          ls -al /github/workspace/Assets
+
+      - name: Build with Unity
+        uses: game-ci/unity-builder@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -47,16 +59,6 @@ jobs:
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
           customParameters: '-logFile -'
-
-      - name: List files in Library directory
-        run: |
-          echo "Listing files in Library directory:"
-          ls -al Library
-
-      - name: List files in root directory
-        run: |
-          echo "Listing files in root directory:"
-          ls -al /github/workspace
 
       - name: Display Editor log
         if: always()
@@ -76,7 +78,8 @@ jobs:
             echo "Unity.log does not exist."
           fi
 
-      - uses: actions/upload-artifact@v3
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
