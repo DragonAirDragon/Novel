@@ -19,16 +19,13 @@ jobs:
           fetch-depth: 0
           lfs: true
 
-      - uses: actions/cache@v3
+      - name: Setup cache
+        uses: actions/cache@v3
         with:
           path: Library
-          key: Library-${{ matrix.targetPlatform }}
-          restore-keys: Library-
-
-      - run: |
-          if [ -d "Library" ]; then
-            rm -rf Library
-          fi
+          key: Library-${{ matrix.targetPlatform }}-${{ runner.os }}-build
+          restore-keys: |
+            Library-${{ matrix.targetPlatform }}-${{ runner.os }}-build
 
       - if: matrix.targetPlatform == 'Android'
         uses: jlumbroso/free-disk-space@v1.3.1
@@ -45,11 +42,17 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+          customParameters: '-logFile -'
 
-      - name: Display logs
-        if: failure()
+      - name: Display Editor log
+        if: always()
         run: |
           cat /github/workspace/Library/Editor.log
+
+      - name: Display Unity log
+        if: always()
+        run: |
+          cat /github/workspace/Library/Unity.log
 
       - uses: actions/upload-artifact@v3
         with:
