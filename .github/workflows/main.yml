@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   build:
     name: Build my project ✨
-    runs-on: ubuntu-latest
+    runs-on: windows
     steps:
       # Checkout
       - name: Checkout repository
@@ -39,8 +39,9 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          customImage: 'unityci/editor-ubuntu-2022.3.21f1-windows-mono-3.1.0'
-          targetPlatform: windows-mono
+          customImage: 'editor-windows-2022.3.21f1-universal-windows-platform-3.1.0'
+          targetPlatform: universal-windows-platform
+          allowDirtyBuild: true
 
       # Output
       - uses: actions/upload-artifact@v4
