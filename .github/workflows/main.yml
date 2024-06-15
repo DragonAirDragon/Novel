@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: false
-      
+
       # Cache Library folder
       - name: Cache Library
         uses: actions/cache@v4
@@ -21,7 +21,7 @@ jobs:
           key: ${{ runner.os }}-unity-library-${{ hashFiles('**/Assets/**') }}
           restore-keys: |
             ${{ runner.os }}-unity-library-
-      
+
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v4
@@ -32,7 +32,7 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
           allowDirtyBuild: true
-      
+
       # Output
       - name: Upload Build
         uses: actions/upload-artifact@v4
@@ -49,6 +49,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: false
-      
+
       - name: Delete Library folder
-        run: rm -rf Library
+        run: |
+          if (Test-Path -Path "Library") {
+            Remove-Item -Path "Library" -Recurse -Force
+          }
