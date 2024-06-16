@@ -33,27 +33,15 @@ jobs:
           targetPlatform: StandaloneWindows64
           buildMethod: CustomBuildProcessor.CustomBuildMethod
 
+      # List files in build directory for debugging
+      - name: List build directory
+        run: |
+          echo "Listing contents of Builds directory:"
+          dir Builds
+
       # Output
       - name: Upload Build
         uses: actions/upload-artifact@v4
         with:
           name: Build
           path: Builds  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
-          if-no-files-found: warn
-
-  # Clean up cache
-  clean-cache:
-    runs-on: windows-2022
-    needs: build
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          lfs: false
-      
-      - name: Delete Library folder
-        run: |
-          if (Test-Path -Path "Library") {
-            Remove-Item -Path "Library" -Recurse -Force
-          }
-        shell: pwsh
