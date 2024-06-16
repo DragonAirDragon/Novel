@@ -10,7 +10,7 @@ jobs:
 
 
       - name: Simple Telegram send
-        uses: yakubique/simple-telegram-send@v1
+        uses: opa-oz/simple-telegram-send@v1
         with:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
