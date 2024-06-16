@@ -44,4 +44,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build
-          path: build  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
+          path: D:\a\Novel\Novel\build\StandaloneWindows64  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
