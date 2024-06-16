@@ -3,7 +3,7 @@ using UnityEditor.Build.Reporting;
 
 public static class CustomBuildProcessor
 {
-    public static void PreExport()
+    public static void CustomBuildMethod()
     {
         var options = new BuildPlayerOptions
         {
@@ -14,10 +14,7 @@ public static class CustomBuildProcessor
         };
 
         Naninovel.BuildProcessor.PreprocessBuild(options);
-    }
-
-    public static void PostExport()
-    {
+        BuildPipeline.BuildPlayer(options);
         Naninovel.BuildProcessor.PostprocessBuild();
     }
 }

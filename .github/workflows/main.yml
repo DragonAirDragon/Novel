@@ -22,12 +22,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-unity-library-
 
-      # Preprocess Naninovel Build
-      - name: Preprocess Naninovel Build
-        run: |
-          $UnityPath = "${{ env.UNITY_EDITOR_PATH }}"
-          & $UnityPath -quit -batchmode -projectPath . -executeMethod CustomBuildProcessor.PreExport
-
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v4
@@ -37,13 +31,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
-          allowDirtyBuild: true
-
-      # Postprocess Naninovel Build
-      - name: Postprocess Naninovel Build
-        run: |
-          $UnityPath = "${{ env.UNITY_EDITOR_PATH }}"
-          & $UnityPath -quit -batchmode -projectPath . -executeMethod CustomBuildProcessor.PostExport
+          buildMethod: CustomBuildProcessor.CustomBuildMethod
 
       # Output
       - name: Upload Build
@@ -67,3 +55,4 @@ jobs:
           if (Test-Path -Path "Library") {
             Remove-Item -Path "Library" -Recurse -Force
           }
+        shell: pwsh
