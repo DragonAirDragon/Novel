@@ -7,6 +7,16 @@ jobs:
     name: Build my project ✨
     runs-on: windows-2022
     steps:
+      
+      - name: TG CHECK
+        uses: robotomize/notify-telegram@v0.1.0
+        if: always()
+        with:
+          chat: ${{ secrets.TELEGRAM_CHAT_ID }} # user id or channel name secret
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }} # token secret
+          status: ${{ job.status }} # do not modify this line
+          message: Я работаю
+        
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -42,11 +52,11 @@ jobs:
           path: build  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
 
 
-      - name: Send Telegram Message
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_CHAT_ID }}
-          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          message: |
-            New build is ready! Download it from the following link:
-            ${{ steps.upload.outputs.artifact-url }}
+      # - name: Send Telegram Message
+      #   uses: appleboy/telegram-action@master
+      #   with:
+      #     to: ${{ secrets.TELEGRAM_CHAT_ID }}
+      #     token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      #     message: |
+      #       New build is ready! Download it from the following link:
+      #       ${{ steps.upload.outputs.artifact-url }}
