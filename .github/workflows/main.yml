@@ -35,16 +35,18 @@ jobs:
 
       # Output
       - name: Upload Build
+        id: upload
         uses: actions/upload-artifact@v3
         with:
           name: Build
           path: build  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
 
-      - name: send telegram message on push
+
+      - name: Send Telegram Message
         uses: appleboy/telegram-action@master
         with:
-          to: ${{ secrets.TELEGRAM_CHAT_ID  }}
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          message: build
-          message_file: build/Build.zip
-            
+          message: |
+            New build is ready! Download it from the following link:
+            ${{ steps.upload.outputs.artifact-url }}
