@@ -39,3 +39,9 @@ jobs:
         with:
           name: Build
           path: build  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
+      - name: Send Build to Telegram
+        run: |
+          for file in build/*; do
+            curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendDocument -F chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -F document=@"$file";
+          done
+          
