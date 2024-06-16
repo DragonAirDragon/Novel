@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Build
-          path: Builds  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
+          path: Build  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
           if-no-files-found: warn
 
   # Clean up cache
