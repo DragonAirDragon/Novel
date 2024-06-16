@@ -9,12 +9,6 @@ jobs:
     steps:
 
 
-      - name: Simple Telegram send
-        uses: opa-oz/simple-telegram-send@v1
-        with:
-          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          to: ${{ secrets.TELEGRAM_CHAT_ID }}
-          message: "Check!"
 
       # Checkout
       - name: Checkout repository
@@ -49,7 +43,14 @@ jobs:
         with:
           name: Build
           path: build  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
-
+      
+      - name: Simple Telegram send
+        uses: opa-oz/simple-telegram-send@v1
+        with:
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          message: "Build Download ${{ steps.upload.outputs.artifact-url }}"
+  
 
       # - name: Send Telegram Message
       #   uses: appleboy/telegram-action@master
@@ -58,4 +59,4 @@ jobs:
       #     token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       #     message: |
       #       New build is ready! Download it from the following link:
-      #       ${{ steps.upload.outputs.artifact-url }}
+      #       
