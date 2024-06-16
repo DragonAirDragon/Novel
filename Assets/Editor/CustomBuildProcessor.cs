@@ -13,13 +13,8 @@ public static class CustomBuildProcessor
             target = BuildTarget.StandaloneWindows64,
             options = BuildOptions.None
         };
-
-        Debug.Log("Starting pre-build processing...");
         Naninovel.BuildProcessor.PreprocessBuild(options);
-        Debug.Log("Building player...");
         BuildPipeline.BuildPlayer(options);
-        Debug.Log("Starting post-build processing...");
         Naninovel.BuildProcessor.PostprocessBuild();
-        Debug.Log($"Build completed. File saved to: {options.locationPathName}");
     }
 }
