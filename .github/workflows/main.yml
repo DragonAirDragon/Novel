@@ -31,17 +31,11 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
-          buildMethod: CustomBuildProcessor.CustomBuildMethod
-
-      # List files in build directory for debugging
-      - name: List build directory
-        run: |
-          echo "Listing contents of Builds directory:"
-          dir build
+          buildMethod: CustomBuildProcessor.Build
 
       # Output
       - name: Upload Build
         uses: actions/upload-artifact@v3
         with:
-          name: build
+          name: Build
           path: build  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
