@@ -8,7 +8,7 @@ public static class CustomBuildProcessor
         var options = new BuildPlayerOptions
         {
             scenes = new[] { "Assets/Scenes/MainScene.unity" },
-            locationPathName = "Builds/Build.exe",  // Директория для билда
+            locationPathName = "Builds/MyUnityGame.exe",  // Директория для билда
             target = BuildTarget.StandaloneWindows64,
             options = BuildOptions.None
         };
