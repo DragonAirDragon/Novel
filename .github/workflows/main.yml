@@ -7,16 +7,15 @@ jobs:
     name: Build my project ✨
     runs-on: windows-2022
     steps:
-      
-      - name: TG CHECK
-        uses: robotomize/notify-telegram@v0.1.0
-        if: always()
+
+
+      - name: Simple Telegram send
+        uses: yakubique/simple-telegram-send@v1
         with:
-          chat: ${{ secrets.TELEGRAM_CHAT_ID }} # user id or channel name secret
-          token: ${{ secrets.TELEGRAM_BOT_TOKEN }} # token secret
-          status: ${{ job.status }} # do not modify this line
-          message: Я работаю
-        
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          message: "Hello, world!"
+
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
