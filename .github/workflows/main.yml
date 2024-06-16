@@ -41,7 +41,7 @@ jobs:
 
       # Output
       - name: Upload Build
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: build
-          path: D:\a\Novel\Novel\build  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
+          path: build  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
