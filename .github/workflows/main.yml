@@ -37,11 +37,11 @@ jobs:
       - name: List build directory
         run: |
           echo "Listing contents of Builds directory:"
-          dir Builds
+          dir build
 
       # Output
       - name: Upload Build
         uses: actions/upload-artifact@v4
         with:
-          name: Build
-          path: Builds  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
+          name: build
+          path: build  # Убедитесь, что этот путь совпадает с местом сохранения вашего билда
